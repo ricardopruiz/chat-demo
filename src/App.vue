@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BaseChatMessage messageUser="testReceiver" messageText="Example received text" :messageReceived="true"/>
+    <BaseChatMessage messageUser="testSender" messageText="Example sended text" :messageReceived="false"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseChatMessage from './components/baseComponents/BaseChatMessage'
 
 export default {
-  name: 'App',
+  name: 'ChatApp',
   components: {
-    HelloWorld
+    BaseChatMessage
   }
 }
 </script>
