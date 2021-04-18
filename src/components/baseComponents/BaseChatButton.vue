@@ -30,30 +30,27 @@ export default {
 <style lang="scss">
 .button-decoration {
   outline: none;
-  background-color: #3e76ff;
+  background-color: $primary;
   border: none;
 
   transition: all 0.1s ease-out;
 
   &:active {
-    background-color: darken(#3e76ff, 30);
-    color: darken(white, 30);
-
-    transform: scale(0.95);
+    @include selected-button-style;
   }
 
   .button-icon {
-    color: white;
+    color: $white;
     font-size: 1.5rem;
     padding: 15px;
   }
 
   &[disabled] {
-    background-color: lighten(#3e76ff, 15);
+    background-color: lighten($primary, 15);
     cursor: not-allowed;
 
     &:active {
-      background-color: lighten(#3e76ff, 15);
+      background-color: lighten($primary, 15);
       transform: unset;
     }
   }

@@ -52,21 +52,21 @@ export default {
 
   .user-message {
     font-size: 0.85rem;
-    color: gray;
+    color: $user-color;
     margin: 15px;
   }
 
   .message-text {
     padding: 15px;
     border-radius: 20px;
-    background-color: #3e76ff;
-    color: white;
+    background-color: $primary;
+    color: $white;
     word-break: break-all;
   }
 
   .message-content-received {
-    background-color: #f2f2f2;
-    color: black;
+    background-color: $secondary;
+    color: $black;
   }
 }
 
@@ -75,15 +75,13 @@ export default {
 }
 
 .message-animation {
-  animation-duration: 0.5s;
+  @include message-animation;
   animation-name: newMessage;
-  animation-timing-function: cubic-bezier(0.12, 0.63, 0.53, 0.88);
 }
 
 .message-animation-received {
-  animation-duration: 0.5s;
+  @include message-animation;
   animation-name: newMessageReceived;
-  animation-timing-function: cubic-bezier(0.12, 0.63, 0.53, 0.88);
 }
 
 @keyframes newMessageReceived {

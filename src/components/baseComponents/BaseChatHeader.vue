@@ -16,11 +16,11 @@ export default {
 }
 </script>
 
-<style style="scss">
+<style lang="scss">
   .chat-header {
     display: flex;
-    background-color: #3e76ff;
-    color: white;
+    background-color: $primary;
+    color: $white;
     font-weight: bolder;
     padding: 10px;
   }
