@@ -27,7 +27,7 @@ export default {
   background-color: #3e76ff;
   border: none;
 
-  transition: all 0.5s ease-out;
+  transition: all 0.1s ease-out;
 
   &:active {
     background-color: darken(#3e76ff, 30);
@@ -40,6 +40,16 @@ export default {
     color: white;
     font-size: 1.5rem;
     padding: 15px;
+  }
+
+  &[disabled] {
+    background-color: lighten(#3e76ff, 15);
+    cursor: not-allowed;
+
+    &:active {
+      background-color: lighten(#3e76ff, 15);
+      transform: unset;
+    }
   }
 }
 </style>
