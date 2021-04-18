@@ -1,72 +1,50 @@
 <template>
   <div id="app">
-    <BaseChatHeader />
-
-    <ChatMessageLog :conversationMessages="messageList" />
-
-    <ChatSendBar @newMessage="appendNewMessage" />
+    <ChatBody class="chat-body"/>
   </div>
 </template>
 
 <script>
-import BaseChatHeader from "./components/baseComponents/BaseChatHeader";
-import ChatMessageLog from "./components/ChatMessageLog";
-import ChatSendBar from "./components/ChatSendBar";
+
+import ChatBody from "./components/ChatBody"
 
 export default {
-  name: "ChatApp",
   components: {
-    BaseChatHeader,
-    ChatSendBar,
-    ChatMessageLog,
-  },
-  data() {
-    return {
-      text: "undefined",
-      messageList: [],
-      user: "Alex",
-      targetUser: "Alberto",
-    };
-  },
-
-  methods: {
-    createNewMessage(user, text, isReceived = false) {
-      const newMessage = {
-        id: this.messageList.length + 1,
-        user,
-        text,
-        isReceived,
-      };
-
-      this.messageList.push(newMessage);
-    },
-
-    appendFirstMessage() {
-      this.createNewMessage(
-        this.targetUser,
-        `Buenos días, ${this.user}. ¿Qué tal todo?`,
-        true
-      );
-    },
-
-    appendNewMessage(message) {
-      this.createNewMessage(this.user, message);
-    },
-  },
-
-  mounted() {
-    this.appendFirstMessage();
+    ChatBody
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+html, body, #app {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
 #app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+
+  .chat-body{
+    height: 500px;
+    width: 600px;
+    border: 10px solid black;
+
+    @media (max-width: 768px) {
+      height: inherit;
+      width: inherit;
+      border: 0;
+    }
+  }
 }
+
 </style>
