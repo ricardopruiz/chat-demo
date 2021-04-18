@@ -4,6 +4,7 @@
     :placeholder="placeHolder"
     @input="handleInput"
     :value="value"
+    @keyup.enter="sendMessage"
   ></textarea>
 </template>
 
@@ -14,6 +15,10 @@ export default {
       type: String,
       default: "",
     },
+    textAbleToSend: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
@@ -23,6 +28,14 @@ export default {
   },
 
   methods: {
+    sendMessage() {
+      if (this.textAbleToSend) {
+        this.$emit("sendMessage");
+      } else {
+        this.$emit("restoreMessage");
+      }
+    },
+
     handleInput(e) {
       this.$emit("input", e.target.value);
     },

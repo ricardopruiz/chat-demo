@@ -1,6 +1,12 @@
 <template>
   <div class="send-bar">
-    <BaseChatInput v-model="text" />
+    <BaseChatInput
+      v-model="text"
+      ref="chatInput"
+      :textAbleToSend="textAbleToSend"
+      @sendMessage="getClicked"
+      @restoreMessage="restoreMessage"
+    />
     <BaseChatButton
       class="send-button"
       :disabled="disableSendButton"
@@ -40,9 +46,20 @@ export default {
   },
 
   methods: {
+    restoreMessage() {
+      this.text = this.text ? this.text.trim() : undefined;
+    },
+
+    setFocusOnInput() {
+      this.$refs.chatInput.$el.focus();
+    },
+
     getClicked() {
-      this.$emit("newMessage", this.textSanitized)
-      this.text = "";
+      if (this.textAbleToSend) {
+        this.$emit("newMessage", this.textSanitized);
+        this.text = "";
+        this.setFocusOnInput();
+      }
     },
   },
 };
