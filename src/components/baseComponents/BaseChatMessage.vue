@@ -61,6 +61,7 @@ export default {
     border-radius: 20px;
     background-color: #3e76ff;
     color: white;
+    word-break: break-all;
   }
 
   .message-content-received {
