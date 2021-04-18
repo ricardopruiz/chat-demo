@@ -10,23 +10,31 @@
       messageText="Example sended text"
       :messageReceived="false"
     />
-    <BaseChatInput v-model="text"/>
+
+    <BaseChatButton fontAwesomeIcon="paper-plane" @click="gotClicked" />
+
+    
   </div>
 </template>
 
 <script>
 import BaseChatMessage from "./components/baseComponents/BaseChatMessage";
-import BaseChatInput from "./components/baseComponents/BaseChatInput";
+import BaseChatButton from "./components/baseComponents/BaseChatButton";
 
 export default {
   name: "ChatApp",
   components: {
     BaseChatMessage,
-    BaseChatInput,
+    BaseChatButton
   },
-  data(){
+  data() {
     return {
-      text:"undefined"
+      text: "undefined",
+    };
+  },
+  methods: {
+    gotClicked() {
+      alert("button is clicked");
     }
   }
 };
