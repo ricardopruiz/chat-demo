@@ -1,6 +1,5 @@
 <template>
-  <input
-    type="text"
+  <textarea
     class="input-element"
     :placeholder="placeHolder"
     @input="handleInput"
@@ -19,7 +18,7 @@ export default {
 
   data() {
     return {
-      placeHolder: "Escribe un mensaje"
+      placeHolder: "Escribe un mensaje",
     };
   },
 
@@ -33,10 +32,10 @@ export default {
 
 <style lang="scss">
 .input-element {
-  border:0;
+  border: 0;
   outline: none;
-  padding: 30px;
+  padding: 15px;
   width: 100%;
-  height: 100%;
+  resize: none;
 }
 </style>
