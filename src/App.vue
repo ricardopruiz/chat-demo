@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <BaseChatHeader />
     <BaseChatMessage
       messageUser="testReceiver"
       messageText="Example received text"
@@ -20,12 +21,14 @@
 <script>
 import BaseChatMessage from "./components/baseComponents/BaseChatMessage";
 import BaseChatButton from "./components/baseComponents/BaseChatButton";
+import BaseChatHeader from "./components/baseComponents/BaseChatHeader";
 
 export default {
   name: "ChatApp",
   components: {
     BaseChatMessage,
-    BaseChatButton
+    BaseChatButton,
+    BaseChatHeader
   },
   data() {
     return {
