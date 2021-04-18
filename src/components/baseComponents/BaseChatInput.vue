@@ -4,7 +4,7 @@
     :placeholder="placeHolder"
     @input="handleInput"
     :value="value"
-    @keyup.enter="sendMessage"
+    @keydown.enter.prevent="sendMessage"
   ></textarea>
 </template>
 
@@ -31,8 +31,6 @@ export default {
     sendMessage() {
       if (this.textAbleToSend) {
         this.$emit("sendMessage");
-      } else {
-        this.$emit("restoreMessage");
       }
     },
 

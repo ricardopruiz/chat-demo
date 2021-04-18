@@ -1,5 +1,5 @@
 <template>
-  <button class="button-decoration" @click="sendClick">
+  <button :disabled="disabled" class="button-decoration" @click="sendClick">
     <font-awesome-icon :icon="fontAwesomeIcon" class="button-icon" />
   </button>
 </template>
@@ -11,11 +11,17 @@ export default {
       type: String,
       default: "",
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   methods: {
     sendClick() {
-      this.$emit("click");
+      if (!this.disabled) {
+        this.$emit("click");
+      }
     },
   },
 };
