@@ -38,8 +38,8 @@ export default {
 
   .button-icon {
     color: white;
-    font-size: 3rem;
-    padding: 30px;
+    font-size: 1.5rem;
+    padding: 15px;
   }
 }
 </style>
