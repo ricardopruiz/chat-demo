@@ -1,10 +1,15 @@
 <template>
-  <div :class="{ 'message-received message-animation-received': isMessageReceived}" class="message message-animation">
+  <div
+    :class="{
+      'message-received message-animation-received': isMessageReceived,
+    }"
+    class="message message-animation"
+  >
     <div class="user-message">
       {{ messageUser }}
     </div>
     <div
-      :class="{ 'message-content-received': isMessageReceived}"
+      :class="{ 'message-content-received': isMessageReceived }"
       class="message-text"
     >
       {{ messageText }}
@@ -17,15 +22,16 @@ export default {
   props: {
     messageUser: {
       type: String,
-      default:""},
+      default: "",
+    },
     messageText: {
       type: String,
-      default: ""
+      default: "",
     },
     messageReceived: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   computed: {
@@ -42,6 +48,7 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 10px;
 
   .user-message {
     font-size: 0.85rem;
@@ -67,51 +74,46 @@ export default {
 }
 
 .message-animation {
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: newMessage;
-  animation-timing-function:ease-out;
-}
-
-@keyframes newMessage {
-  from {
-    margin-left: -100%;
-    opacity: 0;
-  }
-
-  to {
-    margin-left: 0%;
-    opacity: 1;
-  }
+  animation-timing-function: cubic-bezier(0.12, 0.63, 0.53, 0.88);
 }
 
 .message-animation-received {
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-name: newMessageReceived;
-  animation-timing-function:ease-out;
+  animation-timing-function: cubic-bezier(0.12, 0.63, 0.53, 0.88);
 }
 
 @keyframes newMessageReceived {
-  from {
+  0% {
     margin-left: -100%;
     opacity: 0;
   }
 
-  to {
+  60% {
+    opacity: 0;
+  }
+
+  100% {
     margin-left: 0%;
     opacity: 1;
   }
 }
 
 @keyframes newMessage {
-  from {
+  0% {
     margin-right: -100%;
     opacity: 0;
   }
 
-  to {
+  60% {
+    opacity: 0;
+  }
+
+  100% {
     margin-right: 0%;
     opacity: 1;
   }
 }
-
 </style>
