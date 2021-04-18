@@ -28,14 +28,14 @@ export default {
   methods: {
     scrollToBottom() {
       const messageLog = document.querySelector(".message-log");
-      messageLog.scrollTop = messageLog.scrollHeight;
+      setTimeout(() => (messageLog.scrollTop = messageLog.scrollHeight), 100);
     },
   },
 
   watch: {
     conversationMessages: {
       handler() {
-        setTimeout(() => this.scrollToBottom(), 100);
+        this.scrollToBottom(), 100;
       },
     },
   },
