@@ -1,44 +1,62 @@
 <template>
   <div id="app">
     <BaseChatHeader />
-    <BaseChatMessage
-      messageUser="testReceiver"
-      messageText="Example received text"
-      :messageReceived="true"
-    />
-    <BaseChatMessage
-      messageUser="testSender"
-      messageText="Example sended text"
-      :messageReceived="false"
-    />
+
+    <ChatMessageLog :conversationMessages="messageList" />
 
     <ChatSendBar @newMessage="appendNewMessage" />
   </div>
 </template>
 
 <script>
-import BaseChatMessage from "./components/baseComponents/BaseChatMessage";
 import BaseChatHeader from "./components/baseComponents/BaseChatHeader";
+import ChatMessageLog from "./components/ChatMessageLog";
 import ChatSendBar from "./components/ChatSendBar";
 
 export default {
   name: "ChatApp",
   components: {
-    BaseChatMessage,
     BaseChatHeader,
     ChatSendBar,
+    ChatMessageLog,
   },
   data() {
     return {
       text: "undefined",
+      messageList: [],
+      user: "Alex",
+      targetUser: "Alberto",
     };
   },
 
   methods: {
+    createNewMessage(user, text, isReceived = false) {
+      const newMessage = {
+        id: this.messageList.length + 1,
+        user,
+        text,
+        isReceived,
+      };
+
+      this.messageList.push(newMessage);
+    },
+
+    appendFirstMessage() {
+      this.createNewMessage(
+        this.targetUser,
+        `Buenos días, ${this.user}. ¿Qué tal todo?`,
+        true
+      );
+    },
+
     appendNewMessage(message) {
-      console.log("new message: " + message);
+      this.createNewMessage(this.user, message);
     },
   },
+
+  mounted() {
+    this.appendFirstMessage();
+  }
 };
 </script>
 
