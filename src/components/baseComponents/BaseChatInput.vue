@@ -53,6 +53,7 @@ export default {
 
   &::placeholder {
     @include font-information;
+    font-size: 1rem;
   }
 }
 </style>
