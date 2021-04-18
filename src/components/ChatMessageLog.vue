@@ -35,7 +35,7 @@ export default {
   watch: {
     conversationMessages: {
       handler() {
-        this.scrollToBottom(), 100;
+        this.scrollToBottom();
       },
     },
   },
