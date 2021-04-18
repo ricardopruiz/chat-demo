@@ -12,9 +12,7 @@
       :messageReceived="false"
     />
 
-    <ChatSendBar />
-
-    
+    <ChatSendBar @newMessage="appendNewMessage" />
   </div>
 </template>
 
@@ -28,12 +26,18 @@ export default {
   components: {
     BaseChatMessage,
     BaseChatHeader,
-    ChatSendBar
+    ChatSendBar,
   },
   data() {
     return {
       text: "undefined",
     };
+  },
+
+  methods: {
+    appendNewMessage(message) {
+      console.log("new message: " + message);
+    },
   },
 };
 </script>

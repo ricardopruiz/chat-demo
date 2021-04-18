@@ -1,7 +1,12 @@
 <template>
   <div class="send-bar">
     <BaseChatInput v-model="text" />
-    <BaseChatButton class="send-button" fontAwesomeIcon="paper-plane" @click="getClicked"/>
+    <BaseChatButton
+      class="send-button"
+      :disabled="disableSendButton"
+      fontAwesomeIcon="paper-plane"
+      @click="getClicked"
+    />
   </div>
 </template>
 
@@ -14,16 +19,32 @@ export default {
     BaseChatButton,
   },
 
-  data(){
+  data() {
     return {
-      text: undefined
-    }
+      text: undefined,
+    };
   },
+
+  computed: {
+    textSanitized() {
+      return typeof this.text !== "undefined" ? this.text.trim() : "";
+    },
+
+    disableSendButton() {
+      return !this.textAbleToSend;
+    },
+
+    textAbleToSend() {
+      return this.textSanitized !== "";
+    },
+  },
+
   methods: {
     getClicked() {
-      console.log("click event");
-    }
-  }
+      this.$emit("newMessage", this.textSanitized)
+      this.text = "";
+    },
+  },
 };
 </script>
 
@@ -31,7 +52,7 @@ export default {
 .send-bar {
   display: flex;
   flex-wrap: nowrap;
-  
+
   border: 1px solid lightgray;
 }
 </style>
