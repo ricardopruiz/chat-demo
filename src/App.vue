@@ -23,23 +23,18 @@ html, body, #app {
   margin: 0;
 }
 #app {
+  @include font-information;
+
   display: flex;
   justify-content: center;
   align-items: center;
-
-
-
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
 
   .chat-body{
     height: 500px;
     width: 600px;
     border: 10px solid black;
 
-    @media (max-width: 768px) {
+    @media (max-width: $mobile-breakpoint) {
       height: inherit;
       width: inherit;
       border: 0;

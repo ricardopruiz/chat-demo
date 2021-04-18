@@ -70,6 +70,6 @@ export default {
   display: flex;
   flex-wrap: nowrap;
 
-  border: 1px solid lightgray;
+  border: 1px solid $grey;
 }
 </style>

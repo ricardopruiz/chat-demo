@@ -47,5 +47,9 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   padding: 30px;
+
+  @media (max-width: $mobile-breakpoint) {
+      padding: 30px 10px;
+    }
 }
 </style>

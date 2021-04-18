@@ -50,5 +50,10 @@ export default {
   padding: 20px 15px 0 15px;
   margin-bottom: 10px;
   width: 100%;
+
+  &::placeholder {
+    @include font-information;
+    font-size: 1rem;
+  }
 }
 </style>
