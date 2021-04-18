@@ -24,12 +24,28 @@ export default {
       required: true,
     },
   },
+
+  methods: {
+    scrollToBottom() {
+      const messageLog = document.querySelector(".message-log");
+      messageLog.scrollTop = messageLog.scrollHeight;
+    },
+  },
+
+  watch: {
+    conversationMessages: {
+      handler() {
+        setTimeout(() => this.scrollToBottom(), 100);
+      },
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .message-log {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 30px;
 }
 </style>
