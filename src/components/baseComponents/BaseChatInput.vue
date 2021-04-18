@@ -4,7 +4,7 @@
     :placeholder="placeHolder"
     @input="handleInput"
     :value="value"
-  />
+  ></textarea>
 </template>
 
 <script>
@@ -34,8 +34,10 @@ export default {
 .input-element {
   border: 0;
   outline: none;
-  padding: 15px;
-  width: 100%;
   resize: none;
+  box-sizing: border-box;
+  padding: 20px 15px 0 15px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 </style>
