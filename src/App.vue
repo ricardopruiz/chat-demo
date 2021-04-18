@@ -12,7 +12,7 @@
       :messageReceived="false"
     />
 
-    <BaseChatButton fontAwesomeIcon="paper-plane" @click="gotClicked" />
+    <ChatSendBar />
 
     
   </div>
@@ -20,26 +20,21 @@
 
 <script>
 import BaseChatMessage from "./components/baseComponents/BaseChatMessage";
-import BaseChatButton from "./components/baseComponents/BaseChatButton";
 import BaseChatHeader from "./components/baseComponents/BaseChatHeader";
+import ChatSendBar from "./components/ChatSendBar";
 
 export default {
   name: "ChatApp",
   components: {
     BaseChatMessage,
-    BaseChatButton,
-    BaseChatHeader
+    BaseChatHeader,
+    ChatSendBar
   },
   data() {
     return {
       text: "undefined",
     };
   },
-  methods: {
-    gotClicked() {
-      alert("button is clicked");
-    }
-  }
 };
 </script>
 
