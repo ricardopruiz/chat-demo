@@ -1,19 +1,35 @@
 <template>
   <div id="app">
-    <BaseChatMessage messageUser="testReceiver" messageText="Example received text" :messageReceived="true"/>
-    <BaseChatMessage messageUser="testSender" messageText="Example sended text" :messageReceived="false"/>
+    <BaseChatMessage
+      messageUser="testReceiver"
+      messageText="Example received text"
+      :messageReceived="true"
+    />
+    <BaseChatMessage
+      messageUser="testSender"
+      messageText="Example sended text"
+      :messageReceived="false"
+    />
+    <BaseChatInput v-model="text"/>
   </div>
 </template>
 
 <script>
-import BaseChatMessage from './components/baseComponents/BaseChatMessage'
+import BaseChatMessage from "./components/baseComponents/BaseChatMessage";
+import BaseChatInput from "./components/baseComponents/BaseChatInput";
 
 export default {
-  name: 'ChatApp',
+  name: "ChatApp",
   components: {
-    BaseChatMessage
+    BaseChatMessage,
+    BaseChatInput,
+  },
+  data(){
+    return {
+      text:"undefined"
+    }
   }
-}
+};
 </script>
 
 <style>
